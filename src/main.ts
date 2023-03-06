@@ -1,4 +1,4 @@
-export {}
+import {BackgroundMode}  from "capacitor-plugin-background-mode";
 
 const actualCount = document.getElementById("actualCount")!;
 const theoreticalCount = document.getElementById("theoreticalCount")!;
@@ -9,3 +9,6 @@ setInterval(() => {
     actualCount.textContent = count.toString();
     theoreticalCount.textContent = Math.floor((Date.now() - start) / 1000).toString();
 }, 1000)
+
+await BackgroundMode.enable();
+await BackgroundMode.disableWebViewOptimizations();
